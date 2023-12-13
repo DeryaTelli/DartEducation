@@ -20,4 +20,15 @@ void main() {
   }
 
   print('sir, your child result: $isSucess');
+
+  // magazaya gelen isimlerden veli olan varsa print bravoo yaz
+  String name = 'Veli';
+  switch (name) {
+    case 'Veli':
+      print('bravo');
+      break;
+    default:
+      print('incorrect');
+      break;
+  }
 }
