@@ -27,7 +27,29 @@ void main() {
   // 35 tlden buyuk olanlara kredi ver
   // kucuk olanlara by
   List<int> customersM = [100, 30, 40, 60];
+  print("Sıralanmadan önce: $customersM");
+  customersM.sort(); // kucukten buyuge siralama yapar
+  print("Sıralandıktan sonra: $customersM");
+
+  for (int i = 0; i < customersM.length; i++) {
+    // first way
+    if (customersM[i] > 35) {
+      print('you can take a tax');
+    } else {
+      print('byee');
+    }
+  }
+  for (int i = customersM.length - 1; i >= 0; i--) {
+    print('ters : ${customersM[i]}');
+    // sondan calistirmali
+    if (customersM[i] > 35) {
+      print('you can take a tax');
+    } else {
+      print('byee');
+    }
+  }
   customersM.forEach((element) {
+    //second way
     if (element > 35) {
       print('you can take a tax');
     } else {
