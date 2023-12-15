@@ -56,4 +56,18 @@ void main() {
       print('byee');
     }
   });
+
+  List<dynamic> users = ['a', 1, true];
+  for (var list in users) {
+    print(list);
+  }
+
+  List<String> userN = ['a', 'b', 'c'];
+  userN.contains('b'); // b yi iceriyor mu diye bakacaktir
+
+  userN.forEach((i) { // bu islem yukaridakine gore daha yavas calisir o yuzden yukaridaki tercih edilir 
+    if (i == 'b') {
+      print('var');
+    }
+  });
 }

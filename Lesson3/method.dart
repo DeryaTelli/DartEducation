@@ -10,13 +10,20 @@ void main() {
 // kac dolar oldugunu merak ediyor
   chanceDolar(30);
   print(chaceDolar2(30));
+  sayHello('derya');
 
   // bana bir dolar hesaplama yap eger ben sana soylemezsem yeni bir durum var diye her zaman
   // 13 al dolar degerini
-  final newR = convertToStandartDolar(100, 14);
+  final newR = convertToStandartDolar(100, dolarIndex: 13);
+  final newR2 = convertToStandartDolar(100);
 }
 
-int convertToStandartDolar(int money, {int dolarIndex=14}) { // opsiyonel deger vermezlerse alacagi deger belirlidir 
+String sayHello(String name) {
+  return 'Hello $name';
+}
+
+int convertToStandartDolar(int money, {int dolarIndex = 14}) {
+  // opsiyonel deger vermezlerse alacagi deger belirlidir
   return money ~/ dolarIndex;
 }
 
@@ -37,4 +44,8 @@ void controlUserMoney(int userMoney, int minValue) {
   } else {
     print('para yok');
   }
+}
+
+int converToEuro(int userMoney, {int dolarIndex = 14}) {
+  return userMoney ~/ dolarIndex;
 }
