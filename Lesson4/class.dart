@@ -1,3 +1,6 @@
+import 'user_model.dart';
+import 'user_model2.dart';
+
 void main() {
   //musteri adi var , parasi var , yasi var vb.
   final int cusMoney = 5;
@@ -58,10 +61,10 @@ void main() {
 
   print('--------' * 10); // yandaki isaretten 10 kere yazar
 
-  User a = new User('derya', 45, age: 21, city: 'Mersin');
+  User a = new User('derya', 45, age: 21, city: 'Mersin', id: '1');
   // constructor kullanarak nesne yarattim javaya benziyor
   print(a.toString());
-  User d = new User('deraa', 100);
+  User d = new User('deraa', 100, id: '2');
   print(d.toString());
   // musteri son gelen kisinin cityisine gosre kampanya yapacaktir eger istebul ise
   if (d.city != null) {
@@ -71,6 +74,23 @@ void main() {
   } else {
     print('not avaible your city information ');
   }
+  User e = new User('derya', 60, id: '3');
+  print(e.userCode); // city degeri girmedigim icin output istderya olacaktir
+  print(e.isEmptyId);
+  // musteri id 12 olana indiirm yap
+  List<User> users = [a, d, e];
+  for (var element in users) {
+    if (element.getId() == 12) {
+      element.money += 5;
+      print('won discount');
+    } else {
+      print('try again please');
+    }
+  }
+
+  //
+  User2 user2 = new User2('ali', 15);
+  user2.money += 5;
 }
 
 int? controlMoney(int? money) {
@@ -92,33 +112,5 @@ void controlCus(int value) {
     print('might do shopping');
   } else {
     print('might not do shopping');
-  }
-}
-
-// adi olmak zorunda
-// parasi olmak zorunda
-//yasini vermeyebilir
-// sehrini vermeyebilir
-class User {
-  //ozellikleri tanimlamam gerekiyor
-  late final String name; // late demek bu deger sonradan dolacaktir demek
-  // ilk basta degeri null anlami yok demek bu yuzden dart bunu tanimlamami istiyor
-  late final int money;
-  late final int? age;
-  // olmayabilir degerlere ? ekliyorum null gelebilir demek istedigim icin
-  late final String? city;
-  //olmayabilir degerlere ? ekliyorum null gelebilir demek istedigim icin
-  // gelemeyen parametleri opsiyenel gostermek yani girsemde olur oldugu icin {} parantez icine aliyorum
-  User(String name, int money, {int? age, String? city}) {
-// constructor
-    this.name = name;
-    this.money = money;
-    this.age = age;
-    this.city = city;
-  }
-
-  @override
-  String toString() {
-    return 'name: ${name} money: ${money} age: ${age} city: ${city}';
   }
 }
