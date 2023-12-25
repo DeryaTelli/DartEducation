@@ -6,8 +6,8 @@ void main() {
   final userS = SpecialUser('deraa', 100, 50, 30);
   print(userS.calculate);
   print(userS.money); // moneyi degistirmiyor indirimli fiyati gosteriyor
- 
 }
+
 
 // hepsinin paralarini gormelerini istiyorum benim bnka ismim ile
 //hepsinde ayni methodun olmasini ve farkli ozzellukleri olmasini istiyorsam abstract bir class olusturmam gerekecektir
@@ -41,7 +41,7 @@ class BankUser extends IUser {
 
 class SpecialUser extends IUser {
   final int bankCode;
-  late final  int _discount;
+  late final int _discount;
   SpecialUser(String name, int money, this.bankCode, int discount)
       : super(name, money) {
     _discount = discount;

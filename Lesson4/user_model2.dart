@@ -37,3 +37,11 @@ class User2 {
     // _money= money == null ? 0 : money; 'kisa if yapisi '
   }
 }
+
+extension User2ControlExtension on User2 {
+  // user2 ye bir uzanti ekliyorum
+  void controlName() {
+    // this. diyip tum ozelliklerine erisim saglayabiliyorum
+    print(name);
+  }
+}
