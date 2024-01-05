@@ -62,8 +62,9 @@ void main() {
   // carItems.sort(((first, second) => first.money.compareTo(second.money))); // buda kucukten buyuge siralamadir buyukten kucuke ise second la first yer degistirir
   print(carItems);
   print('----------------------------');
-  calculateToUSer([...carItems]); // kesin liste yapmanin cozumu !!
- 
+  calculateToUSer(List.of(carItems)); // buda liste yapma yontemidir
+  //calculateToUSer([...carItems]);
+  // kesin liste yapmanin cozumu !!
 
   // final users = carItems.expand((element) => element.users).toList();
   // simdi benim caritems listemdeki elemanlarimi users verip yeni bir liste olusturdu
@@ -75,18 +76,15 @@ void main() {
   print('elemanlar : $carItems');
 }
 
-void calculateToUSer(List<CarModel> items) { 
-  final newItems = items.map((CarModel e) {
-    if (e.category == CarsModels.bmw) { // bmvleri forda donusturecektir bu 
-      e.category = CarsModels.ford;
-    }
-    if (e.isSecondHand) {
-      e.isSecondHand = false;
-    }
-    return e;
+void calculateToUSer(List<CarModel> items) {
+  final _items = [...items.toList()];
+  final newItems = _items.map((CarModel e) {
+    return CarModel(
+      e.category == CarsModels.bmw ? CarsModels.yamaha: e.category,
+      e.name,
+      e.money,
+       isSecondHand:e.isSecondHand);
   }).toList();
-
-  print('elemanlar : $newItems');
 }
 
 // benim bir arabalar sinifi olucak
