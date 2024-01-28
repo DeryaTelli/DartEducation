@@ -1,3 +1,5 @@
+import 'polymorphism.dart';
+
 void main() {
   IDatabase database = SQL();
   database = Mongo();
@@ -64,10 +66,38 @@ abstract class IUserOperation implements IUserLocation, ILanguage {
   void speak();
 }
 
-abstract class IUserLocation{
+abstract class IUserLocation {
   void locationChange();
 }
 
-abstract class ILanguage{
- void language();
+abstract class ILanguage {
+  void language();
+}
+
+class UserLocation extends IUserLocation {
+  @override
+  void locationChange() {
+    print('location change');
+  }
+}
+
+abstract class ICameraManager {
+  void readQR();
+}
+
+class DeviceCameraManager extends ICameraManager {
+  final IphoneCameraRead iphoneCamereRead;
+  DeviceCameraManager(this.iphoneCamereRead);
+  @override
+  void readQR() {
+    // TODO: implement readQR
+  }
+
+}
+
+class IphoneCameraRead extends ICameraManager {
+  @override
+  void readQR() {
+    // TODO: implement readQR
+  }
 }
